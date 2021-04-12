@@ -81,7 +81,9 @@ lrd —— live reload —— browser -sync
 
 ##### 2、框架
 
-框架代码，是软件的一部分，完成程序的功能![image-20210304092650106](../images/image-20210304092650106.png)
+框架代码，是软件的一部分，完成程序的功能
+
+![image-20210304092650106](../images/image-20210304092650106.png)
 
 ##### 3、自动化构建（build automation）
 
