@@ -4,30 +4,6 @@
 
 # ReactNative
 
-**考试内容：**
-
- RN特点
-
- 混合框架：
-
-环境搭建：简单流程：node、jdk、SDK等
-
-基础组件：View、Text。。。。Platform、Dimensions。。
-
-// 路由：二选一react-native-router-flux或React Navigation
-
-第三方组件：只要知道几个名即可
-
-// ts：掌握课件上的内容
-
- React语法：
-
-基本语法（jsx、属性、状态、声明组件）
-
- hooks（原来的加上useCallback、useMemo）
-
-状态（redux）
-
 ##  课程简介
 
 ##### 1、**App开发模式**
