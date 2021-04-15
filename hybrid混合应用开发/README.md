@@ -135,16 +135,36 @@ class Hello extends React.Component {
 - 组件生命周期
 
   - constructor
+  
   - render
-  - componentDidMount
+  
+  - **componentDidMount**
+  
+    在第一次渲染后调用
+  
   - shouldComponentUpdate
+  
+    返回一个布尔值。在组件接收到新的props或者state时被调用。在初始化时或者使用forceUpdate时不被调用。
+  
+    组件挂载之后，每次调用setState后都会调用shouldComponentUpdate判断是否需要重新渲染组件。
+  
   - getSnapshotBeforeUpdate
-  - componentDidUpdate
-  - componentWillUnmount
+  
+  - **componentDidUpdate**
+  
+    在组件完成更新后立即调用。在初始化时不会被调用。
+  
+  - **componentWillUnmount**
+  
+    卸载之前调用
 
 ##### 3、Redux
 
-Redux 是 JavaScript 状态容器，提供可预测化的状态管理 • 目的 – 随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理比任何时候都要多的 state（状态），管理不断变化的 state 非常困难 • 核心概念 – Action、Reducer、Store
+Redux 是 JavaScript 状态容器，提供可预测化的状态管理
+
+ • 目的 – 随着 JavaScript 单页应用开发日趋复杂，JavaScript 需要管理比任何时候都要多的 state（状态），管理不断变化的 state 非常困难
+
+ • 核心概念 – Action、Reducer、Store
 
 ##### 4、action
 
@@ -245,9 +265,13 @@ export default store
   ```jsx
   import React, { useState, useEffect } from 'react';
   function Example() {
-    const [count, setCount] = useState(0);
+      const [count, setCount] = useState(0);
   
-    // 相当于 componentDidMount 和 componentDidUpdate:  useEffect(() => {    // 使用浏览器的 API 更新页面标题    document.title = `You clicked ${count} times`;  });
+      // 相当于 componentDidMount 和 componentDidUpdate:  
+      useEffect(() => {    
+          // 使用浏览器的 API 更新页面标题    
+          document.title = `You clicked ${count} times`;  
+      });
     return (
       <div>
         <p>You clicked {count} times</p>
@@ -488,7 +512,49 @@ export default class DisplayAnImage extends Component {
 
   不透明度会变化的按钮
 
-##### **4、Android** 独有组件
+##### 4、FlatList
+
+高性能的简单列表组件
+
+- onRefresh：下拉刷新
+
+- refreshing：下拉刷新时的图标
+
+- onEndReached: 上拉加载
+
+- onEndReachedThreshold: （0-1之间的数）距离底部多少距离触发上拉加载函数
+
+- keyExtractor: 为 item 指定key
+
+```jsx
+<FlatList
+    data={[{key: 'a'}, {key: 'b'}]}
+    renderItem={({item}) => <Text>{item.key}</Text>}
+/>
+```
+
+##### 5、SectionList
+
+高性能的分组(section)列表组件
+
+```jsx
+<SectionList
+  renderItem={({ item, index, section }) => <Text key={index}>{item}</Text>}
+  renderSectionHeader={({ section: { title } }) => (
+    <Text style={{ fontWeight: "bold" }}>{title}</Text>
+  )}
+  sections={[
+    { title: "Title1", data: ["item1", "item2"] },
+    { title: "Title2", data: ["item3", "item4"] },
+    { title: "Title3", data: ["item5", "item6"] }
+  ]}
+  keyExtractor={(item, index) => item + index}
+/>
+```
+
+
+
+##### 6、Android** 独有组件
 
 - BackHandler
 - ToastAndroid
@@ -499,7 +565,7 @@ export default class DisplayAnImage extends Component {
 - DatePickerAndroid
 - TimePickerAndroid
 
-##### 5、Platform
+##### 7、Platform
 
 - 平台模块 Platform.OS
 
@@ -521,7 +587,7 @@ export default class DisplayAnImage extends Component {
   }
   ```
 
-##### 6、Dimensionsrn
+##### 8、Dimensionsrn
 
 获取屏幕尺寸
 
@@ -564,6 +630,37 @@ const styles = StyleSheet.create({
 });
 AppRegistry.registerComponent('ReactNativeDemo', () => ReactNativeDemo);
 ```
+
+##### 9、弹性盒布局
+
+- flexDirection
+
+  决定布局的主轴
+
+  |     属性值     | 作用         |
+  | :------------: | ------------ |
+  |     column     | 纵向由上到下 |
+  | column-reverse | 纵向由下到上 |
+  |      row       | 横向由左到右 |
+  |  row-reverse   | 横向由右到左 |
+
+- justifyContent
+
+  子元素沿主轴的排列方式
+
+  flex-start、center、flex-end、space-between、space-around
+
+- AlignItems
+
+  子元素沿侧轴的排列方式
+
+  stretch、flex-start、center、flex-end
+
+- flexWrap
+
+  子元素在父元素容器内是否运行多行排列
+
+  nowrap 只排一行、wrap 允许多行
 
 ## 第三方组件
 

@@ -1392,7 +1392,7 @@ $(function(){
       <input type="text" id="perimeter" disabled>
       <br/>
       <label for="area">面积：</label>
-      <input type="text" id="area" disabled>
+      <input type="text" id="area" disabled> 
       <br/>
     </form>
   </div>
@@ -1432,11 +1432,25 @@ input:valid+span:after{
 ##### 2、常用的第三方组件
 
 - 图表组件
+
+  使用 EChart 组件绘制二进熵函数曲线
+
 - 地图组件
+
 - 语法高亮
+
+  使用 behave 插件让 textarea 文本框具有 IDE 的代码编辑功能
+
 - 集成开发环境
+
 - 表格组件
+
+  使用 handsontable 插件在页面上显示一个 Excel 表格
+
 - 公式组件
+
+  使用 Mathquill 插件在页面上实现一个数学公式编辑功能
+
 - 整页轮播组件
 
 ##### 3、为什么使用第三方组件而不使用h5内置控件？
